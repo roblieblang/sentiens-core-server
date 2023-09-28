@@ -61,7 +61,7 @@ typings/
 # IDE/Editor directories and files
 .idea/
 .vscode/
-*.swp
+*.swp 
 *.swo
 *.swn
 *.bak
