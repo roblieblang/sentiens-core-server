@@ -11,5 +11,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["./prisma"]
+  "exclude": ["./prisma", "./__tests__"]
 }
