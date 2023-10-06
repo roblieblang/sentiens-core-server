@@ -6,22 +6,27 @@ import {
   getUsers,
   updateUserById,
 } from "../controllers/userControllers";
+import {
+  createUserValidations,
+  idValidation,
+  updateUserValidations,
+} from "../validators/userValidators";
 
 const router = express.Router();
 
 // Create a new user
-router.post("/", createUser);
+router.post("/", createUserValidations, createUser);
 
 // Get all users
 router.get("/", getUsers);
 
 // Get a user by ID
-router.get("/:id", getUserById);
+router.get("/:id", idValidation, getUserById);
 
-// Update a user by ID
-router.put("/:id", updateUserById);
+// Partially update a user by ID
+router.patch("/:id", idValidation, updateUserValidations, updateUserById);
 
 // Delete a user by ID
-router.delete("/:id", deleteUserById);
+router.delete("/:id", idValidation, deleteUserById);
 
 export default router;
