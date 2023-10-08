@@ -10,7 +10,7 @@
     "build": "tsc",
     "start": "NODE_ENV=production && node dist/server.js",
     "dev": "NODE_ENV=development nodemon",
-    "test": "jest"
+    "test": "NODE_ENV=test dotenv -e .env.test jest"
   },
   "keywords": [],
   "author": "",

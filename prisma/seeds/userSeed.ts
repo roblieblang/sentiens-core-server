@@ -11,6 +11,7 @@ export async function seedUsers(prisma: PrismaClient) {
   if (!existingUser) {
     await prisma.user.create({
       data: {
+        id: "90546054-dbd7-4551-8988-ee8a9a372de7",
         email: "rob@example.com",
         name: "Rob Lie",
         password: "password",
