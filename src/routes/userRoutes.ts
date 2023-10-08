@@ -6,27 +6,47 @@ import {
   getUsers,
   updateUserById,
 } from "../controllers/userControllers";
+import { checkUserExistence, validateRequest } from "../middleware";
 import {
-  createUserValidations,
-  idValidation,
-  updateUserValidations,
-} from "../validators/userValidators";
+  createUserValidators,
+  updateUserValidators,
+  userIdValidator,
+} from "../validators";
 
 const router = express.Router();
 
 // Create a new user
-router.post("/", createUserValidations, createUser);
+router.post("/", createUserValidators, validateRequest, createUser);
 
 // Get all users
 router.get("/", getUsers);
 
 // Get a user by ID
-router.get("/:id", idValidation, getUserById);
+router.get(
+  "/:userId",
+  userIdValidator,
+  validateRequest,
+  checkUserExistence,
+  getUserById
+);
 
 // Partially update a user by ID
-router.patch("/:id", idValidation, updateUserValidations, updateUserById);
+router.patch(
+  "/:userId",
+  userIdValidator,
+  updateUserValidators,
+  validateRequest,
+  checkUserExistence,
+  updateUserById
+);
 
 // Delete a user by ID
-router.delete("/:id", idValidation, deleteUserById);
+router.delete(
+  "/:userId",
+  userIdValidator,
+  validateRequest,
+  checkUserExistence,
+  deleteUserById
+);
 
 export default router;

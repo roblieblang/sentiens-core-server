@@ -1,6 +1,6 @@
 import { check, param } from "express-validator";
 
-export const createUserValidations = [
+export const createUserValidators = [
   check("email")
     .isEmail()
     .withMessage("Must be a valid email")
@@ -33,7 +33,7 @@ export const createUserValidations = [
     .withMessage('Theme must be either "light" or "dark"'),
 ];
 
-export const updateUserValidations = [
+export const updateUserValidators = [
   check("name")
     .optional()
     .notEmpty()
@@ -60,6 +60,6 @@ export const updateUserValidations = [
     .withMessage('Theme must be either "light" or "dark"'),
 ];
 
-export const idValidation = [
-  param("id").isUUID().withMessage("ID must be in valid UUID format"),
+export const userIdValidator = [
+  param("userId").isUUID().withMessage("ID must be in valid UUID format"),
 ];

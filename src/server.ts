@@ -3,9 +3,9 @@ import * as dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import { validationResult } from "express-validator";
 import morgan from "morgan";
-import prisma from "./utils/prisma";
+import prisma from "./utils/prismaClientUtil";
 
-import { userRoutes } from "./routes";
+import { journalRoutes, userRoutes } from "./routes";
 
 dotenv.config({ path: "../.env" });
 
@@ -33,7 +33,10 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 // Routes
+// Users
 app.use("/users", userRoutes);
+// Journal Entries
+app.use("/users/:userId/journal-entries", journalRoutes);
 
 // express-validator route validation middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
