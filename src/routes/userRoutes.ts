@@ -1,11 +1,11 @@
 import express from "express";
 import {
   createUser,
-  deleteUserById,
   getUserById,
   getUsers,
+  softDeleteUserById,
   updateUserById,
-} from "../controllers/userControllers";
+} from "../controllers/userController";
 import { checkUserExistence, validateRequest } from "../middleware";
 import {
   createUserValidators,
@@ -30,7 +30,7 @@ router.get(
   getUserById
 );
 
-// Partially update a user by ID
+// Partially update a user's profile by ID
 router.patch(
   "/:userId",
   userIdValidator,
@@ -40,13 +40,13 @@ router.patch(
   updateUserById
 );
 
-// Delete a user by ID
-router.delete(
-  "/:userId",
+// Soft-delete a user by ID
+router.patch(
+  "/:userId/soft-delete",
   userIdValidator,
   validateRequest,
   checkUserExistence,
-  deleteUserById
+  softDeleteUserById
 );
 
 export default router;
