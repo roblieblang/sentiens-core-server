@@ -24,7 +24,7 @@ export async function seedUsers(prisma: PrismaClient) {
       data: {
         email: faker.internet.email(),
         // Concatenate firstname() and lastname() instead of fullname() which includes prefixes and suffixes
-        name: faker.person.firstName() + faker.person.lastName(),
+        name: `${faker.person.firstName()} ${faker.person.lastName()}`,
         password: faker.internet.password(),
         isAdmin: false,
         themePreference: faker.helpers.arrayElement(["dark", "light"]),

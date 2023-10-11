@@ -1,6 +1,6 @@
 import { JournalEntry, PrismaClient } from "@prisma/client";
 
-import { mockJournalEntries } from "../mocks/journalEntries";
+import { mockJournalEntries } from "../mocks/mockJournalEntries";
 
 export async function seedJournalEntries(prisma: PrismaClient) {
   const clonedJournalEntries = [...mockJournalEntries];
