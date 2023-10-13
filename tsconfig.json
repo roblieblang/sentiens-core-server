@@ -11,5 +11,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["./prisma", "./__tests__"]
+  "exclude": ["./prisma", "test", "vitest.config.ts"]
 }
