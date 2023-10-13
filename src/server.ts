@@ -32,12 +32,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-// Routes
-// Users
-app.use("/users", userRoutes);
-// Journal Entries
-app.use("/users/:userId/journal-entries", journalRoutes);
-
 // express-validator route validation middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req);
@@ -46,6 +40,12 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   }
   next();
 });
+
+/* Routes */
+// Journal Entries
+app.use("/users/:userId/journal-entries", journalRoutes);
+// Users
+app.use("/users", userRoutes);
 
 // Error-handling middleware
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {

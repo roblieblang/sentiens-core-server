@@ -9,7 +9,7 @@
  * - Retrieving a single user by its ID
  * - Modifying user data
  * - Anonymizing user details
- * - Soft-deleting and resoring users
+ * - Soft-deleting and restoring users
  * - Permanently deleting users
  *
  * Dependencies:

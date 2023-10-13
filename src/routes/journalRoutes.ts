@@ -1,11 +1,11 @@
 import express from "express";
 import {
   createJournalEntry,
-  deleteJournalEntryById,
   getJournalEntries,
   getJournalEntryById,
+  softDeleteJournalEntryById,
   updateJournalEntryById,
-} from "../controllers/journalControllers";
+} from "../controllers/journalController";
 import { checkUserExistence, validateRequest } from "../middleware";
 import {
   createOrUpdateEntryValidator,
@@ -13,12 +13,12 @@ import {
   userIdValidator,
 } from "../validators";
 
-// Turn on mergeParams to access parameters from parent ("user") route
+// Turn on mergeParams to access parameters from parent ("users") route
 const router = express.Router({ mergeParams: true });
 
 // Create a new journal entry for a specific user
 router.post(
-  "/users/:userId/journal-entries",
+  "/",
   userIdValidator,
   createOrUpdateEntryValidator,
   validateRequest,
@@ -28,7 +28,7 @@ router.post(
 
 // Get all journal entries for a specific user
 router.get(
-  "/users/:userId/journal-entries",
+  "/",
   userIdValidator,
   validateRequest,
   checkUserExistence,
@@ -37,7 +37,7 @@ router.get(
 
 // Get a user's journal entry by its ID
 router.get(
-  "/users/:userId/journal-entries/:entryId",
+  "/:entryId",
   userIdValidator,
   entryIdValidator,
   validateRequest,
@@ -45,19 +45,19 @@ router.get(
   getJournalEntryById
 );
 
-// Delete a user's journal entry
-router.delete(
-  "/users/:userId/journal-entries/:entryId",
+// Soft-delete a user's journal entry
+router.patch(
+  "/:entryId/delete",
   userIdValidator,
   entryIdValidator,
   validateRequest,
   checkUserExistence,
-  deleteJournalEntryById
+  softDeleteJournalEntryById
 );
 
 // Update a user's journal entry
 router.patch(
-  "/users/:userId/journal-entries/:entryId",
+  "/:entryId/update",
   userIdValidator,
   entryIdValidator,
   createOrUpdateEntryValidator,
