@@ -7,7 +7,7 @@ import {
   retrieveAllUsers,
   retrieveUser,
   softDeleteUser,
-} from "../services/userService";
+} from "../services/user.service";
 
 // Create a new user
 export const createUser = async (

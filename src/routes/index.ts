@@ -1,4 +1,4 @@
-import userRoutes from "./userRoutes";
-import journalRoutes from "./journalRoutes";
+import userRoutes from "./user.router";
+import journalRoutes from "./journal.router";
 
 export { userRoutes, journalRoutes };

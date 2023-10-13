@@ -5,7 +5,7 @@ import {
   getJournalEntryById,
   softDeleteJournalEntryById,
   updateJournalEntryById,
-} from "../controllers/journalController";
+} from "../controllers/journal.controller";
 import { checkUserExistence, validateRequest } from "../middleware";
 import {
   createOrUpdateEntryValidator,

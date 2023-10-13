@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import prisma from "../lib/prisma";
 import {
   insertNewJournalEntry,
   modifyEntry,
@@ -7,8 +8,7 @@ import {
   retrieveAllExtantEntries,
   retrieveSpecificEntry,
   softDeleteEntry,
-} from "../services/journalService";
-import prisma from "../utils/prisma";
+} from "../services/journal.service";
 
 // Create a new journal entry
 export const createJournalEntry = async (

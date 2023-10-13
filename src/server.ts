@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import { validationResult } from "express-validator";
 import morgan from "morgan";
-import prisma from "./utils/prisma";
+import prisma from "./lib/prisma";
 
 import { journalRoutes, userRoutes } from "./routes";
 

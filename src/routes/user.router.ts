@@ -5,7 +5,7 @@ import {
   getUsers,
   softDeleteUserById,
   updateUserById,
-} from "../controllers/userController";
+} from "../controllers/user.controller";
 import { checkUserExistence, validateRequest } from "../middleware";
 import {
   createUserValidators,

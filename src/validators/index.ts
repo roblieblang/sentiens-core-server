@@ -1,12 +1,12 @@
 import {
   createOrUpdateEntryValidator,
   entryIdValidator,
-} from "./journalEntryValidators";
+} from "./journal.validators";
 import {
   createUserValidators,
   updateUserValidators,
   userIdValidator,
-} from "./userValidators";
+} from "./user.validators";
 
 export {
   createOrUpdateEntryValidator,
