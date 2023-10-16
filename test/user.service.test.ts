@@ -1,12 +1,12 @@
 import { expect, test, vi } from "vitest";
+import prisma from "../src/lib/__mocks__/prisma";
 import {
   insertNewUser,
   retrieveAllUsers,
   retrieveUser,
 } from "../src/services/user.service";
-import prisma from "../src/utils/__mocks__/prisma";
 
-vi.mock("../src/utils/prisma.ts");
+vi.mock("../src/lib/prisma.ts");
 
 const mockUser = {
   id: "facefaceface-face-face-face-facefaceface",
