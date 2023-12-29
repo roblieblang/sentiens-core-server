@@ -60,7 +60,7 @@ app.listen(port, () => {
 
 // Handle server shutdown on SIGINT signal
 process.on("SIGINT", async () => {
-  console.log("Gracefully shutting down server");
+  console.log("Shutting down server");
   await prisma.$disconnect();
   process.exit(0);
 });
